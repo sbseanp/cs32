@@ -1,17 +1,23 @@
-// grading2.cpp - uses C++ style object-handling (AFTER CHANGES BELOW)          
-// Sean Prasertsit, Keith Waldron 10/17/2013                                    
-
 #include <iostream>
 using namespace std;
 
 class Record {
 
 public:
+  Record();
+  Record(double rq1, double rq2, double rm, double rf);
   void setGrades(double q1, double q2,double m, double f);
   char overallGrade() const;
-  double getQuiz1(), getQuiz2(), getMiderm(), getFinal();
-  void setQuiz1(double sq1), setQuiz2(double sq2), setMidterm(double sm), setFinal(double sf);
-  
+  char OverallGrade(double quizwt, double midtermwt, double finalwt);
+  double getQuiz1();
+  double getQuiz2();
+  double getMidterm();
+  double getFinal();
+  void setQuiz1(double sq1);
+  void setQuiz2(double sq2);
+  void setMidterm(double sm);
+  void setFinal(double sf);
+
 private:
   double quiz1, quiz2;
   double midterm, final;
@@ -25,6 +31,33 @@ int main() {
   Record rec = getScores();
   cout << "Grade is " << rec.overallGrade() << endl;
   return 0;
+}
+
+Record::Record() {
+  quiz1 = 0;
+  quiz2 = 0;
+  midterm = 0;
+  final = 0;
+}
+
+Record::Record(double q1, double q2, double m, double f) {
+  quiz1 = q1, quiz2 = q2, midterm = m, final = f;
+  if (q1 < 0)
+    quiz1 = 0;
+  if (q1 > 10)
+    quiz1 = 10;
+  if (q2 < 0)
+    quiz2 = 0;
+  if (q2 > 10)
+    quiz2 = 10;
+  if (m < 0)
+    m = 0;
+  if (m > 100)
+    m = 100;
+  if (f < 0)
+    f = 0;
+  if (f > 100)
+    f = 100;
 }
 
 Record getScores() {
@@ -50,6 +83,10 @@ char Record::overallGrade() const {
   return letterEquiv(overall);
 }
 
+char Record::overallGrade(double qwt, double mwt, double fwt) {
+  return letterEquiv(overall);
+}
+
 void Record::setGrades(double q1, double q2, double m, double f) {
   quiz1 = q1;
   quiz2 = q2;
@@ -71,4 +108,20 @@ double Record::getMidterm() {
 
 double Record::getFinal() {
   return final;
+}
+
+void Record::setQuiz1(double score) {
+  quiz1 = score;
+}
+
+void Record::setQuiz2(double score) {
+  quiz2 = score;
+}
+
+void Record::setMidterm(double score) {
+  midterm = score;
+}
+
+void Record::setFinal(double score) {
+  final = score;
 }
