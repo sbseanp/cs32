@@ -8,7 +8,7 @@ public:
   Record(double rq1, double rq2, double rm, double rf);
   void setGrades(double q1, double q2,double m, double f);
   char overallGrade() const;
-  char OverallGrade(double quizwt, double midtermwt, double finalwt);
+  char overallGrade(double quizwt, double midtermwt, double finalwt);
   double getQuiz1();
   double getQuiz2();
   double getMidterm();
