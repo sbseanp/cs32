@@ -66,3 +66,21 @@ Vec3 Vec3::operator++(int one) {
   operator++();
   return temp;
 }
+
+double& Vec3::operator[](int index) {
+  if (index == 0)
+    return this->x;
+  if (index == 1)
+    return this->y;
+  else
+    return this->z;
+}
+
+double Vec3::operator[](int index) const{
+  if (index == 0)
+    return this->x;
+  if (index == 1)
+    return this->y;
+  else
+    return this->z;
+}
