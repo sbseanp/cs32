@@ -44,14 +44,14 @@ Vec3 operator*(const Vec3& obj, double input) {
   return newVec;
 }
 
-Vec3 operator+=(Vec3& obj1, const Vec3& obj2) {
-  obj1.set_x(obj1.get_x() + obj2.x);
-  obj1.set_y(obj1.get_y() + obj2.y);
-  obj1.set_z(obj1.get_z() + obj2.z);
-  return obj1;
+Vec3& Vec3::operator+=(const Vec3& con) {
+  this->x += con.x;
+  this->y += con.y;
+  this->z += con.z;
+  return *this;
 }
-Vec3 operator++() {
-}
+//Vec3 operator++() {
+//}
 
-Vec3 operator++(int inc) {
-}
+//Vec3 operator++(int inc) {
+//}

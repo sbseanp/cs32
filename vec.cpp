@@ -50,8 +50,19 @@ Vec3& Vec3::operator+=(const Vec3& con) {
   this->z += con.z;
   return *this;
 }
-//Vec3 operator++() {
-//}
 
-//Vec3 operator++(int inc) {
-//}
+Vec3& Vec3::operator++() {
+  this->x += 1;
+  this->y += 1;
+  this->z += 1;
+  return *this;
+}
+
+Vec3 Vec3::operator++(int one) {
+  Vec3 temp;
+  temp.x = this->x;
+  temp.y = this->y;
+  temp.z = this->z;
+  operator++();
+  return temp;
+}
